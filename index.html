@@ -3,531 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreyas Dilip Mavale - Portfolio</title>
+    <title>Shreyas Dilip Mavale - Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background: linear-gradient(90deg, #5e78ff, #00d4ff);
-            color: #fff;
-            overflow-x: hidden;
-        }
-    
-        h1 {
-            color: #fff;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            animation: fadeInUp 1s ease-in-out;
-        }
-    
-        h2, h3 {
-            color: #007bff;
-        }
-    
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #5e78ff, #00d4ff); color: #333; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { margin-bottom: 10px; }
+
+        /* Header */
         header {
-            background-color: #007bff;
-            padding: 30px;
-            text-align: center;
-            color: #fff;
-            position: relative;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: space-between;
-            animation: fadeInDown 1s ease-in-out;
-        }
-    
-        /* #profile-img {
-            max-width: 100px;
-            border-radius: 50%;
-            border: 4px solid #00d4ff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            object-fit: cover;
-            animation: fadeInRight 1s ease-in-out;
-        } */
-    
-        section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 40px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            color: #333;
-            animation: fadeIn 1s ease-in-out;
-        }
-    
-        section form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: auto;
-        }
-    
-        label {
-            margin-top: 10px;
-        }
-    
-        input,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-    
-        button {
-            background-color: #007bff;
+            padding: 20px 50px;
+            background-color: rgba(0, 123, 255, 0.9);
             color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    
-        .project {
-            margin-bottom: 20px;
-        }
-    
-        .skills {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-    
-        .skill-meter {
-            width: 100px;
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-    
-        .skill-progress {
-            height: 100%;
-            width: 50%; 
-            background-color: #007bff;
-            border-radius: 5px;
-        }
-    
-        .achievements-list,
-        .interests-list {
-            list-style-type: none;
-            padding: 0;
-        }
-    
-        .columns {
-            display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
         }
-    
-        .column {
-            flex-basis: calc(50% - 20px);
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-in-out;
-        }
-    
-        footer {
-            background-color: #007bff;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-    
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-    
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-    
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-    
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        header h1 { font-size: 2.2rem; }
+        header p { font-size: 1rem; color: #e0e0e0; }
 
-        #profile-img:hover {
-            transform: scale(1.1); 
+        #profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            object-fit: cover;
+            transition: transform 0.3s;
         }
+        #profile-img:hover { transform: scale(1.1); }
 
+        /* Layout */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 40px; }
+        .column { flex: 1 1 500px; background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .column:hover { transform: translateY(-5px); }
 
+        /* Sections */
+        section { margin-bottom: 30px; }
+        section h2 { color: #007bff; margin-bottom: 15px; }
 
-        button:hover {
-            background-color: #0056b3; 
-        }
+        /* Skills */
+        .skills .skill { margin-bottom: 15px; }
+        .skill-name { font-weight: 600; margin-bottom: 5px; }
+        .skill-bar { width: 100%; height: 12px; background: #ddd; border-radius: 6px; overflow: hidden; }
+        .skill-progress { height: 100%; background: #007bff; width: 0%; border-radius: 6px; animation: fillSkill 2s forwards; }
 
-        .project:hover {
-            transform: scale(1.02); 
-        }
+        @keyframes fillSkill { from { width: 0; } to { width: var(--skill-width); } }
 
-        h2:hover, h3:hover {
-            color: #0056b3; 
-        }
+        /* Lists */
+        ul { list-style: none; }
+        li { margin-bottom: 8px; }
 
-        ul.interests-list li:hover {
-            transform: scale(1.1);
-        }
+        /* Projects */
+        .project { margin-bottom: 20px; transition: transform 0.2s; }
+        .project:hover { transform: scale(1.02); }
 
-        section:hover {
-            transform: translateY(-5px); 
+        /* Contact Form */
+        form { display: flex; flex-direction: column; max-width: 400px; }
+        input, textarea { padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 12px; background: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #0056b3; }
+
+        /* Footer */
+        footer { text-align: center; padding: 20px; background-color: rgba(0,123,255,0.9); color: #fff; margin-top: 40px; }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
         }
 
     </style>
-    
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div>
             <h1>Shreyas Dilip Mavale</h1>
-            <p>Final Year BTech Student</p>
+            <p>Data Science | Machine Learning | Cloud & Analytics</p>
         </div>
-        <!-- <img id="profile-img" src="/Users/shreyasmavale/Downloads/IMG_5006.jpg" alt="Profile Image"> -->
+        <!-- Uncomment and add your profile picture -->
+        <!-- <img id="profile-img" src="profile.jpg" alt="Shreyas Mavale"> -->
     </header>
 
-    <div class="columns">
+    <!-- Main Container -->
+    <div class="container">
 
+        <!-- Left Column -->
         <div class="column">
+            <!-- About -->
             <section>
                 <h2>About Me</h2>
-                <p>
-                    I am a final year BTech student at Dy Patil International University, specializing in Data Science. Currently holding a CGPA of 6.9, I have consistently demonstrated a strong academic foundation and a passion for technology. My educational journey began with an electrical engineering diploma from JT Mahajan Polytechnic, where I achieved an outstanding score of 83.40%.
-                </p>
-                <p>
-                    My technical expertise spans various programming languages, including Python, Java, HTML, CSS, SQL, and No-SQL. I have hands-on experience in hardware design, contributing to projects that integrate software and hardware components seamlessly.
-                </p>
-                <p>
-                    Beyond my academic achievements, I have completed internships to apply my knowledge in real-world scenarios. Notably, I interned at Dwarka Industries, a leading electrical transformer company, where I gained insights into industrial processes during a 3-month internship.
-                </p>
-                <p>
-                    I am a proactive learner, always eager to explore new technologies and stay updated with industry trends. I take pride in my ability to adapt quickly to new challenges and leverage my problem-solving skills to find innovative solutions.
-                </p>
+                <p>B.Tech graduate in <strong>Data Science</strong> and currently pursuing a <strong>Master’s in Data Science</strong>. Passionate about analytics, AI, and cloud technologies. Strong foundation in Python, SQL, No-SQL, and data-driven problem solving.</p>
+                <p>Currently a <strong>Teaching Associate at DY Patil International University</strong>, handling Artificial Neural Networks, Advanced Big Data Analytics, Cloud Networks & Security, and Electronics.</p>
             </section>
-            
 
+            <!-- Work / Teaching Experience -->
             <section>
-                <h2>Work Experience</h2>
+                <h2>Experience</h2>
+                <p><strong>Teaching Associate</strong> – DY Patil International University</p>
+                <ul>
+                    <li>Teaching Artificial Neural Networks, Advanced Big Data Analytics, Cloud Networks & Security, and Electronics.</li>
+                    <li>Conducting lectures, labs, and mentoring students in practical and analytical projects.</li>
+                    <li>Guiding students in data-driven problem solving and AI applications.</li>
+                </ul>
 
-                <p>
-                    <strong>Dwarka Industries</strong> - 3-month internship in an electrical transformer company.
-                </p>
-            
-                <p>
-                    During my internship at Dwarka Industries, I actively participated in various aspects of electrical transformer manufacturing. My responsibilities included:
-            
-                    <ul>
-                        <li>Assisting in the design and testing of electrical transformers.</li>
-                        <li>Collaborating with the engineering team to analyze and troubleshoot technical issues.</li>
-                        <li>Conducting quality control checks to ensure compliance with industry standards.</li>
-                        <li>Working on CAD software to create and modify transformer design drawings.</li>
-                        <li>Engaging in hands-on tasks related to transformer assembly and maintenance.</li>
-                        <li>Contributing to team discussions on process optimization and efficiency improvements.</li>
-                    </ul>
-                </p>
-            
-                <p>
-                    This experience not only enhanced my technical skills in electrical engineering but also provided valuable insights into the practical application of theoretical knowledge in an industrial setting. It was a rewarding opportunity to work alongside experienced professionals and gain a deeper understanding of the electrical manufacturing industry.
-                </p>
-            
-                <p>
-                    <strong>Learn and Build Company</strong> - Paid internship during BTech second year. Although I don't have the certificate, I played a crucial role in projects related to [Specify projects and responsibilities]. This experience allowed me to:
-            
-                    <ul>
-                        <li>Gain practical insights into real-world software development practices.</li>
-                        <li>Work on projects that involved Python, Java, HTML, CSS, SQL, and other coding languages.</li>
-                        <li>Collaborate with a diverse team and contribute to the development life cycle.</li>
-                        <li>Learn and implement industry best practices for efficient and scalable coding.</li>
-                    </ul>
-                </p>
-            
-                <p>
-                    Despite not having the certificate, the Learn and Build internship was a valuable learning experience that allowed me to apply classroom knowledge to real-world projects, enhancing my coding and problem-solving abilities.
-                </p>
+                <p><strong>Dwarka Industries</strong> – Electrical Transformer Internship</p>
+                <ul>
+                    <li>Assisted in design, testing, and quality checks of transformers.</li>
+                    <li>Worked on CAD drawings and collaborated with the engineering team.</li>
+                </ul>
             </section>
 
+            <!-- Projects -->
             <section>
                 <h2>Projects</h2>
                 <div class="project">
                     <h3>Java-based Job Application Form</h3>
-                    <p>
-                        As part of my project portfolio, I developed a Java-based job application form that enables users to apply for positions in a selected group of companies. The application is backed by a SQL database to manage and store applicant data securely.
-                    </p>
-                    <p>
-                        My responsibilities included designing and implementing the user interface using Java, connecting the application to a SQL database for efficient data storage and retrieval, and ensuring a seamless user experience throughout the application process.
-                    </p>
+                    <p>Developed a Java application with SQL backend for managing applicant data efficiently.</p>
                 </div>
                 <div class="project">
                     <h3>Voice-Based AI Hardware using Raspberry Pi 4</h3>
-                    <p>
-                        I successfully completed a project involving the development of a Voice-Based AI Hardware system using Raspberry Pi 4 and Python. My role in the project included designing and implementing the hardware setup, as well as programming the AI functionalities using Python.
-                    </p>
-                    <p>
-                        The project aimed to create an interactive and voice-controlled system, showcasing the integration of AI capabilities on a Raspberry Pi platform. Through this project, I gained hands-on experience in hardware design, Python programming, and AI implementation on embedded systems.
-                    </p>
+                    <p>Created a voice-controlled AI system integrating hardware and Python programming on Raspberry Pi 4.</p>
                 </div>
             </section>
 
-            <section>
-                <h2>Volunteering Experience</h2>
-                <h3>CodeChef Video Editing</h3>
-                <p>
-                    During my volunteering experience with CodeChef, I contributed to video editing tasks. This role involved editing and enhancing educational videos, making the content more engaging and accessible to the audience. Through this experience, I honed my video editing skills and gained valuable insights into presenting technical content effectively.
-                </p>
-            </section>
-            
         </div>
 
+        <!-- Right Column -->
         <div class="column">
-
-            <section>
-                <h2>Education</h2>
-            
-                <p>
-                    <strong>BTech in Computer Science</strong> - Dy Patil International University (Current CGPA: 6.9)
-                </p>
-            
-                <p>
-                    Currently in my final year pursuing a Bachelor's degree in Computer Science (Data Science) at Dy Patil International University. My coursework includes a mix of theoretical knowledge and hands-on projects.
-                </p>
-            
-                <p>
-                    <strong>Diploma in Electrical Engineering</strong> - JT Mahajan Polytechnic (83.40%)
-                </p>
-            
-                <p>
-                    Completed a Diploma in Electrical Engineering from JT Mahajan Polytechnic, Faizpur, Maharashtra, with an impressive score of 83.40%. The comprehensive curriculum covered a range of topics.
-                </p>
-            
-                <p>
-                    <strong>Secondary Education</strong> - St Aloysius Convent High School (77%)
-                </p>
-            
-                <p>
-                    Completed my secondary education at St Aloysius Convent High School, Bhusawal, Maharashtra, securing 77%.
-                </p>            
-            </section>
-            
-
+            <!-- Skills -->
             <section>
                 <h2>Skills</h2>
-            
                 <div class="skills">
-                    <div>
-                        <h3>Programming Languages</h3>
-                        <ul>
-                            <li>Python
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 80%;"></div>
-                                </div>
-                            </li>
-                            <li>Java
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 40%;"></div>
-                                </div>
-                            </li>
-                            <li>C++
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 70%;"></div>
-                                </div>
-                            </li>
-                            <li>Flutter
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 60%;"></div>
-                                </div>
-                            </li>
-                            <li>Dart
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 50%;"></div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="skill">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-width:80%"></div></div>
                     </div>
-                    <div>
-                        <h3>Database</h3>
-                        <ul>
-                            <li>MongoDB
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 60%;"></div>
-                                </div>
-                            </li>
-                            <li>SQL
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 75%;"></div>
-                                </div>
-                            </li>
-                            <li>No-SQL
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 70%;"></div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="skill">
+                        <div class="skill-name">SQL</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-width:75%"></div></div>
                     </div>
-                    <div> <h3>Markup Languages</h3>
-                        <ul>
-                            <li>HTML
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 80%;"></div>
-                                </div>
-                            </li>
-                            <li>CSS
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 75%;"></div>
-                                </div>
-                            </li>
-                            <li>XML
-                                <div class="skill-meter">
-                                    <div class="skill-progress" style="width: 65%;"></div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="skill">
+                        <div class="skill-name">No-SQL / MongoDB</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-width:70%"></div></div>
                     </div>
-                    <div>
-                        <h3>Hardware Design</h3>
-                        <div class="skill-meter">
-                            <div class="skill-progress" style="width: 55%;"></div>
-                        </div>
+                    <div class="skill">
+                        <div class="skill-name">Java</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-width:50%"></div></div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">HTML / CSS</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-width:80%"></div></div>
                     </div>
                 </div>
-            
             </section>
-            
-            
-            
 
-            <!-- <section>
-                <h2>Achievements</h2>
-                <ul class="achievements-list">
-                    <li></li>
-                    <li></li>
-                </ul>
-            </section> -->
-
+            <!-- Education -->
             <section>
-                <h2>Interests</h2>
-                <ul class="interests-list">
-                    <li>Listening to Music</li>
-                    <li>Exploring New Technologies</li>
-                    <li>Photography</li>
-                    <li>Graphic Design</li>
-                    <li>Cooking</li>
-                    <li>Traveling</li>
-                    <li>Video Editing</li>
-                    <li>Virtual Reality (VR) Experiences</li>
-                    <li>Artificial Intelligence (AI) and Machine Learning (ML)</li>
-                    <li>Outdoor Sports</li>
-                    <li>Space Exploration</li>
-                    <li>Blockchain Technology</li>
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>Master’s in Data Science</strong> – Ongoing</li>
+                    <li><strong>B.Tech in Data Science</strong> – DY Patil International University (CGPA: 6.9)</li>
+                    <li><strong>Diploma in Electrical Engineering</strong> – JT Mahajan Polytechnic (83.4%)</li>
+                    <li><strong>Secondary Education</strong> – St Aloysius Convent High School (77%)</li>
                 </ul>
             </section>
 
+            <!-- Certifications -->
             <section>
                 <h2>Certifications</h2>
-            
-                <!-- <p>
-                    <strong>Data Science Certification</strong> - Kaggle
-                </p>
-            
-                <p>
-                    Successfully completed the Kaggle Data Science certification, demonstrating proficiency in data analysis, machine learning, and statistical modeling. The certification includes hands-on projects that showcase practical skills in real-world scenarios.
-                </p> -->
-            
-                <p>
-                    <strong>Python Certification</strong> - Kaggle
-                </p>
-            
-                <p>
-                    Earned a Kaggle Python certification, indicating proficiency in Python programming and its applications in data analysis and machine learning.
-                </p>
-            
-                <p>
-                    <strong>Android Application Development</strong> - MyCaptain
-                </p>
-            
-                <p>
-                    Developed an Android application as part of the MyCaptain program, showcasing skills in mobile app development, user interface design, and project management.
-                </p>
-            
-                <!-- You can add more certifications or projects related to data science, Kaggle, and Android development as needed. -->
-            
+                <ul>
+                    <li>Kaggle Python Certification</li>
+                    <li>Android Application Development – MyCaptain</li>
+                </ul>
             </section>
-            
 
+            <!-- Interests -->
             <section>
-                <h2>Contact Form</h2>
+                <h2>Interests</h2>
+                <ul>
+                    <li>Data Analytics & Machine Learning</li>
+                    <li>Cloud Computing & AI</li>
+                    <li>Photography & Video Editing</li>
+                    <li>Exploring New Technologies</li>
+                    <li>Travel & Space Exploration</li>
+                </ul>
+            </section>
+
+            <!-- Contact -->
+            <section>
+                <h2>Contact Me</h2>
                 <form action="https://formspree.io/f/xkndjzga" method="POST">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-            
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-            
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea>
-            
-                    <button type="submit">Submit</button>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
                 </form>
             </section>
+
         </div>
 
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>Contact me at: Mavaleshrryas12@gmail.com | LinkedIn: <a href="https://www.linkedin.com/in/shreyas-mavale-227279167/" target="_blank">linkedin.com/in/shreyas-mavale</a></p>
+        <p>📧 Mavaleshrryas12@gmail.com | 🔗 <a href="https://www.linkedin.com/in/shreyas-mavale-227279167/" target="_blank">LinkedIn</a></p>
     </footer>
+
+    <script>
+        // Animate skill bars on scroll
+        const skills = document.querySelectorAll('.skill-progress');
+        const animateSkills = () => {
+            skills.forEach(skill => {
+                const rect = skill.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 50) {
+                    skill.style.width = skill.style.getPropertyValue('--skill-width');
+                }
+            });
+        };
+        window.addEventListener('scroll', animateSkills);
+        window.addEventListener('load', animateSkills);
+    </script>
 
 </body>
 </html>
